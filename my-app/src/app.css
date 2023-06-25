@@ -58,13 +58,20 @@ width:350px ;
   /* padding: 0 5em;  */
   
   /* justify-content: space-between; */
-  background-color: brown;
+  /* background-color: brown; */
  
 }
 .page-wraper .main-instegram-container .icons-contaier ul li{
  display: flex;
     justify-content: space-around;
     margin-right: 15px;
+}
+
+.page-wraper .main-instegram-container .text-container{
+  
+}
+.page-wraper .main-instegram-container .text-container .topper-container {
+ display: flex; 
 }
 
 

@@ -26,22 +26,25 @@ function InsteramPage({user}) {
               <img src={user.image} alt="" />
             </div>
             <div className="icons-contaier">
-              <div className="left-container">
+              <div className="left-container" >
 
-              <ul >
+              <ul style={{paddingLeft:'0'}} >
                 <li ><FcLike/></li>
                 <li ><AiOutlineMessage/></li>
-                <li ><HiOutlinePaperAirplane/></li>
+                <li><HiOutlinePaperAirplane/></li>
               </ul>
               </div>
-              <div className="right-container">
+              <div className="right-container" >
                 <ul>
                   <li><FaRegStickyNote/></li>
                 </ul>
               </div>
             </div>
             <div className="text-container">
-              <h3>{user.authorName}   {user.title} </h3>
+                <div className="topper-container">
+
+              <h3>{user.authorName}</h3> <p style={{paddingTop:'5px',marginLeft:'1em'}}>{user.title} </p>
+                </div>
               <p>{user.text}</p>
             </div>
        
