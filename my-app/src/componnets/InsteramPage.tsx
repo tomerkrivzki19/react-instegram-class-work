@@ -8,7 +8,7 @@ import { HiOutlinePaperAirplane } from 'react-icons/hi';
 import { FaRegStickyNote } from 'react-icons/fa';
 
 // import { USER_DATA } from '../App';
-function InsteramPage({user}) {
+function InsteramPage({user}:{user:any}) {
     console.log(user);
     
   return (

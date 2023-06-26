@@ -1,4 +1,5 @@
-import React, { useMemo, useState } from 'react'
+import { log } from 'console';
+import React, { useEffect, useMemo, useState } from 'react'
 
 /*
 2) Build another component for the project, add 3 props from outside to the component and define a type for those props
@@ -8,59 +9,41 @@ Inside the component - use the interval for updating once in a minute the state 
 2.2) Create a function that calculates the remaining seconds for the day (until 00:00 today), use the hook useMemo to calculate this only when the flag "greenLight" is true!
 2.3) Present the remaining seconds for the day in the return() from the component.
 */  
-const [greenLight, setGreenLight] = useState(false)
-
-//- this flag is a boolean "green light" that should be turned-off (false) after 1 second:
-interface CallSetInterval {
-   greenLightL :boolean;
-}
-
-function  CallSetInterval:CallSetInterval()=> {
-
-    setInterval(function () {
-        if(greenLight == false){
-            setGreenLight(true)
-        }
-    }, 60000);//every 1 min
-     
-    setInterval(function () {
-        if(greenLight == true){
-            setGreenLight(false)
-        }
-    }, 1000 )//evry 1 sec
-   
-
-    // setInterval(function () {element.innerHTML += "Hello"}, 1000);
-}
-function calculatesTheRemainingTimeOfTheDay(){
-    const calculateRemainingSeconds = () => {
-        const currentDate = new Date();
-        const endOfDay = new Date(
-          currentDate.getFullYear(),
-          currentDate.getMonth(),
-          currentDate.getDate(),
-          23,
-          59,
-          59
-          
-        );
-        console.log(currentDate);
-        
-        return Math.floor((endOfDay - currentDate) / 1000);
-      };
-    
-      const remainingSeconds = useMemo(() => {
-        if (greenLight == true) {
-          return calculateRemainingSeconds();
-        }
-        return 0;
-      }, [greenLight])
-}
-
 
 function NewComponent() {
+  const [greenLight, setGreenLight] = useState(false)
+ 
+
+  useEffect(()=>{
+
+    setInterval(function () {
+        setGreenLight(true);
+      setTimeout(() => {
+  
+  
+        setGreenLight(false);
+      }, 1000);//every 1 secend
+    }, 5000); //every 1 min
+  })
+  
+
+const calculation = useMemo(() => calculatesTheRemainingTimeOfTheDay(), [greenLight]);
+
+
+function calculatesTheRemainingTimeOfTheDay() {
+  const now:Date = new Date();
+  const endOfDay:Date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+  return Math.floor((endOfDay.getTime() - now.getTime()) / 1000); // Convert milliseconds to seconds
+};
+
   return (
-    <div>NewComponent</div>
+ <>
+{/* {
+  greenLight == true ? <div style={{backgroundColor:'red'}}> {calculation}</div>
+  :
+  <div > </div>
+} */}
+ </>
   )
 }
 
