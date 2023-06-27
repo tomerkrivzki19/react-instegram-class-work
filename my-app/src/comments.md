@@ -40,3 +40,48 @@ more info - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Gl
  4.4) After we declare the Promise - is the promise executed? or it is waiting for something?
  4.5) What are the methods the Promise class expose in a promise instance? are they public/protected/private methods?
  4.6) Are there any static methods the Promise class expose?
+
+
+ answers:
+
+4.1 =Pending
+Fulfilled
+Rejected
+
+
+4.2 =
+let myPromise = new Promise(function(myResolve, myReject))
+
+4.3 =
+*params == פרמטרים
+myPromise.then(
+  function(value) { /* code if successful */ },
+  function(error) { /* code if some error */ }
+);
+
+||
+
+try and cath option.
+
+4.4 =
+after the program is reading the code for Promise == the promis will start runing intill it's compelted ||intil it will catch an error  
+
+4.5 =
+then(onFulfilled, onRejected): Attaches callbacks for the fulfillment and/or rejection of the promise.
+catch(onRejected): Attaches a callback for only the rejection of the promise.
+finally(onFinally): Attaches a callback that will be executed when the promise is settled, whether it's fulfilled or rejected.
+resolve(value): Creates a new resolved promise with the given value.
+reject(reason): Creates a new rejected promise with the given
+
+--the answer is that the Promis will always run ass Public Method
+
+
+4.6=
+es, the Promise class in JavaScript also exposes several static methods that can be called directly on the Promise class itself, rather than on an instance of a promise. These static methods are commonly used for creating or working with promises.
+
+
+Promise.resolve(value): Creates a resolved promise with the given value.
+Promise.reject(reason): Creates a rejected promise with the given reason.
+Promise.all(iterable): Returns a promise that resolves when all promises in the iterable argument have resolved, or rejects if any of the promises reject.
+Promise.race(iterable): Returns a promise that resolves or rejects as soon as one of the promises in the iterable argument resolves or rejects, with the value or reason of that promise.
+Promise.allSettled(iterable): Returns a promise that resolves after all promises in the iterable argument have settled (fulfilled or rejected), with an array of objects representing the outcome of each promise
