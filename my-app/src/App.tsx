@@ -34,7 +34,7 @@ function App() {
         {/* <NavBar/> */}
         <InstegramNav/>
         <Routes>
-      
+      {/* hi */}
           <Route path="/" element={<Posts/>} />
           <Route path="/Top" element={<Toppost/>} />
         </Routes>
