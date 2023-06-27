@@ -14,7 +14,7 @@ import Posts from './componnets/Posts'
 ]
 
 
-interface userdata {
+ export interface userdata {
   id:number,
   title:string,
   text:string,
