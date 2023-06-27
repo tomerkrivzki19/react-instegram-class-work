@@ -1,46 +1,18 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+H.W 25/06:
+1) React context API is being used mostly to store/share data between components, and avoid the props providing every time
+See example from class: https://www.w3schools.com/react/react_usecontext.asp
+Use the React Context API in your instagram app to store the posts data
+1.1) Create another instagram page, that presents the TOP 3 posts according to their date (latest posts - add dates for each post if needed), use the useContext to retrieve the data from the context
+2) Use useRef hook in order to interact with a dom element - create an event listener on a button in the new page you create, the button is "Create a post"
+on clicking the button - perform redirect to the first page.
+3) In our previous HWs we defined callback funcs that return function according to an input.
+    Use React useCallBack hook for this same case to use the same callback and not re-render this - only if the provided value changed.
+4) Read about JS promises here - 
+https://www.w3schools.com/js/js_promise.asp
+more info - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+ 4.1) what can be all the Promise statuses?
+ 4.2) How do we declare and initialize a promise?
+ 4.3) what are the params the promise expect to recieve?
+ 4.4) After we declare the Promise - is the promise executed? or it is waiting for something?
+ 4.5) What are the methods the Promise class expose in a promise instance? are they public/protected/private methods?
+ 4.6) Are there any static methods the Promise class expose?

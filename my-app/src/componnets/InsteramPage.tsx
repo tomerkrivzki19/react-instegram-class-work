@@ -1,5 +1,5 @@
 import { log } from 'console'
-import React from 'react'
+import React ,{useContext} from 'react'
 
 import { CgProfile } from 'react-icons/cg';
 import { FcLike } from 'react-icons/fc';
@@ -8,8 +8,9 @@ import { HiOutlinePaperAirplane } from 'react-icons/hi';
 import { FaRegStickyNote } from 'react-icons/fa';
 
 // import { USER_DATA } from '../App';
-function InsteramPage({user}) {
-    console.log(user);
+function InsteramPage({user}:{user:any}) {
+    
+   
     
   return (
     <div>
