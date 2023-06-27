@@ -11,9 +11,17 @@ on clicking the button - perform redirect to the first page.
 4) Read about JS promises here - 
 https://www.w3schools.com/js/js_promise.asp
 more info - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
- 4.1) what can be all the Promise statuses?
+ 4.1) what can be all the Promise statuses?  
+ Pending
+Fulfilled
+Rejected
  4.2) How do we declare and initialize a promise?
+let myPromise = new Promise(function(myResolve, myReject)
  4.3) what are the params the promise expect to recieve?
+ two function one for fufiled and one for reject promise 
  4.4) After we declare the Promise - is the promise executed? or it is waiting for something?
+ its waiting for files if we set it to include them if we didnt it will execute the code inside then send the promise
  4.5) What are the methods the Promise class expose in a promise instance? are they public/protected/private methods?
+ then , catch,finally, resolve,reject  theyre public methods
  4.6) Are there any static methods the Promise class expose?
+ yes  resolve reject all race
