@@ -27,6 +27,35 @@ export const MyContext = createContext<userdata[] | undefined>(undefined);
 
 
 function App() {
+
+
+
+    const makeQuarablePromise = (promise:Promise<string>) =>{
+      const Newpromise:{promise:Promise<string>,status:string} = {promise,status:'pending'};
+  
+     promise?.then(()=>{
+      Newpromise.status= 'fufilled';
+     })
+     .catch(()=>{
+      Newpromise.status = 'rejected';
+     })
+      return Newpromise;
+    }
+  
+    const promise:Promise<string> =  new Promise((res,rej)=>{
+        res('suc'); 
+        rej('rej');
+    })
+    const Newpromise =  makeQuarablePromise(promise);
+    console.log(Newpromise);
+
+
+
+
+
+
+
+
   return (
     <div>
        <MyContext.Provider value={USER_DATA}>
