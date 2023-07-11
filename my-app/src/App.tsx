@@ -6,6 +6,7 @@ import NewComponent from './componnets/NewComponent'
 import Toppost from './componnets/Toppost'
 import { Route, Routes, Link, BrowserRouter as Router } from "react-router-dom";
 import Posts from './componnets/Posts'
+import HomeWork from './componnets/HomeWork'
  
  const USER_DATA:{id:number,title:string,text:string,authorName:string| number, image:any,date:Date}[] = [
  { id:2, title:'Tolum Trip 2009',text:"random text",authorName:"Ronit555", image:'https://www.everysteph.com/wp-content/uploads/2021/10/Tulum-ruins-in-Mexico-1.jpg',date:new Date('2022-05-25')},
@@ -66,6 +67,7 @@ function App() {
       
           <Route path="/" element={<Posts/>} />
           <Route path="/Top" element={<Toppost/>} />
+          {/* <Route path="/testing" element={<HomeWork/>} /> */}
         </Routes>
       </Router>
       </MyContext.Provider>

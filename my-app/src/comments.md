@@ -85,3 +85,24 @@ Promise.reject(reason): Creates a rejected promise with the given reason.
 Promise.all(iterable): Returns a promise that resolves when all promises in the iterable argument have resolved, or rejects if any of the promises reject.
 Promise.race(iterable): Returns a promise that resolves or rejects as soon as one of the promises in the iterable argument resolves or rejects, with the value or reason of that promise.
 Promise.allSettled(iterable): Returns a promise that resolves after all promises in the iterable argument have settled (fulfilled or rejected), with an array of objects representing the outcome of each promise
+
+new Homework : 11.07
+DD---
+1) Implement your own ideas for 3 different async functions and 2 different promises (one of the promises should be Promise.resolve())
+
+show an example of calling Promise.all, Promise.race and Promise.any about those promises and explain the results of your code.
+2) regarding H.W 02/07/2023 - upgrade your server to TS, and make sure your instagram is working with this server.
+
+
+/sync function - לחכות עד שהפונקציה תיגמר 
+/promise - בקשה ואם לא תראה לי שגיעה
+
+FUNCTIONS
+//קריאות של שרת 
+//פרומיס לשמות של יוסרים 
+//פקטמיס לתמונות ששלחנו 
+
+//HomeWork component --------the asnwer---->
+
+
+

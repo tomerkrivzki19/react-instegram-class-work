@@ -44,6 +44,8 @@ function NewComponent({name,interval,user}:props) {
     //   }
     //   return 0;
     // }, [greenLight]);
+
+    
     
   return (<div><h1>{calculation}</h1></div>);
 }
