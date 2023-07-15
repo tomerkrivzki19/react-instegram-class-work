@@ -18,45 +18,44 @@ left to end :
 3) Read about useContext, useRef, useCallback - explain in class their usage.
   -->
 
-///לסיים את כל מה שהיה בכיתה לפי זה-------------  <!-- Done -->
+///לסיים את כל מה שהיה בכיתה לפי זה------------- <!-- Done -->
 
 new homework:
 
 H.W 25/06:
-1) React context API is being used mostly to store/share data between components, and avoid the props providing every time
-See example from class: https://www.w3schools.com/react/react_usecontext.asp
-Use the React Context API in your instagram app to store the posts data
-1.1) Create another instagram page, that presents the TOP 3 posts according to their date (latest posts - add dates for each post if needed), use the useContext to retrieve the data from the context  
-2) Use useRef hook in order to interact with a dom element - create an event listener on a button in the new page you create, the button is "Create a post"
-on clicking the button - perform redirect to the first page.
-3) In our previous HWs we defined callback funcs that return function according to an input.
-    Use React useCallBack hook for this same case to use the same callback and not re-render this - only if the provided value changed.
-4) Read about JS promises here - 
-https://www.w3schools.com/js/js_promise.asp
-more info - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
- 4.1) what can be all the Promise statuses?
- 4.2) How do we declare and initialize a promise?
- 4.3) what are the params the promise expect to recieve?
- 4.4) After we declare the Promise - is the promise executed? or it is waiting for something?
- 4.5) What are the methods the Promise class expose in a promise instance? are they public/protected/private methods?
- 4.6) Are there any static methods the Promise class expose?
 
+1. React context API is being used mostly to store/share data between components, and avoid the props providing every time
+   See example from class: https://www.w3schools.com/react/react_usecontext.asp
+   Use the React Context API in your instagram app to store the posts data
+   1.1) Create another instagram page, that presents the TOP 3 posts according to their date (latest posts - add dates for each post if needed), use the useContext to retrieve the data from the context
+2. Use useRef hook in order to interact with a dom element - create an event listener on a button in the new page you create, the button is "Create a post"
+   on clicking the button - perform redirect to the first page.
+3. In our previous HWs we defined callback funcs that return function according to an input.
+   Use React useCallBack hook for this same case to use the same callback and not re-render this - only if the provided value changed.
+4. Read about JS promises here -
+   https://www.w3schools.com/js/js_promise.asp
+   more info - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+   4.1) what can be all the Promise statuses?
+   4.2) How do we declare and initialize a promise?
+   4.3) what are the params the promise expect to recieve?
+   4.4) After we declare the Promise - is the promise executed? or it is waiting for something?
+   4.5) What are the methods the Promise class expose in a promise instance? are they public/protected/private methods?
+   4.6) Are there any static methods the Promise class expose?
 
- answers:
+answers:
 
 4.1 =Pending
 Fulfilled
 Rejected
 
-
 4.2 =
 let myPromise = new Promise(function(myResolve, myReject))
 
 4.3 =
-*params == פרמטרים
+_params == פרמטרים
 myPromise.then(
-  function(value) { /* code if successful */ },
-  function(error) { /* code if some error */ }
+function(value) { /_ code if successful _/ },
+function(error) { /_ code if some error \*/ }
 );
 
 ||
@@ -64,7 +63,7 @@ myPromise.then(
 try and cath option.
 
 4.4 =
-after the program is reading the code for Promise == the promis will start runing intill it's compelted ||intil it will catch an error  
+after the program is reading the code for Promise == the promis will start runing intill it's compelted ||intil it will catch an error
 
 4.5 =
 then(onFulfilled, onRejected): Attaches callbacks for the fulfillment and/or rejection of the promise.
@@ -75,10 +74,8 @@ reject(reason): Creates a new rejected promise with the given
 
 --the answer is that the Promis will always run ass Public Method
 
-
 4.6=
 es, the Promise class in JavaScript also exposes several static methods that can be called directly on the Promise class itself, rather than on an instance of a promise. These static methods are commonly used for creating or working with promises.
-
 
 Promise.resolve(value): Creates a resolved promise with the given value.
 
@@ -92,22 +89,41 @@ Promise.allSettled(iterable): Returns a promise that resolves after all promises
 
 new Homework : 11.07
 DD---
-1) Implement your own ideas for 3 different async functions and 2 different promises (one of the promises should be Promise.resolve())
 
-show an example of calling Promise.all, Promise.race and Promise.any about those promises and explain the results of your code.
-2) regarding H.W 02/07/2023 - upgrade your server to TS, and make sure your instagram is working with this server.
+1. Implement your own ideas for 3 different async functions and 2 different promises (one of the promises should be Promise.resolve())
 
+show an example of calling Promise.all, Promise.race and Promise.any about those promises and explain the results of your code. 2) regarding H.W 02/07/2023 - upgrade your server to TS, and make sure your instagram is working with this server.
 
-/sync function - לחכות עד שהפונקציה תיגמר 
+/sync function - לחכות עד שהפונקציה תיגמר
 /promise - בקשה ואם לא תראה לי שגיעה
 
 FUNCTIONS:
 
-//קריאות של שרת 
-//פרומיס לשמות של יוסרים 
-//פקטמיס לתמונות ששלחנו 
+//קריאות של שרת
+//פרומיס לשמות של יוסרים
+//פקטמיס לתמונות ששלחנו
 
 //HomeWork component --------the asnwer---->
 
+H.W 12/07:
 
+1. Read about all http main status codes, provide an explanation for the following family codes: 2xx, 3xx, 4xx, 5xx.
+2. Create 3 different views for (1) 4xx case, (2) 5xx case, (3) Your special view - presenting some image, text, and button that onclick - present another thing.
+3. Present an example of connecting your express server using mongoose library and mongodb database.
+
+answers:
+<!-- ------------------------------ -->
+
+1XX — Informational -- מביא לנו מידע על סטטוסים שונים כלומר המידע בהעברה
+
+<!-- ------------------------------ -->
+2XX — Success --מביא לנו מידע שהפעולה המסויימת הצליחה
+
+<!-- ------------------------------ -->
+3XX — Redirection --מעביר לנו  שצריך להעביר את המידע מחדש
+
+
+4XX — Client Error --שגיעת צד לקוח
+
+5XX — Server Error ----שגיעת צד שרת
 
