@@ -16,3 +16,18 @@ more info - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Gl
  4.4) After we declare the Promise - is the promise executed? or it is waiting for something?
  4.5) What are the methods the Promise class expose in a promise instance? are they public/protected/private methods?
  4.6) Are there any static methods the Promise class expose?
+
+
+
+ 1) Create the SessionXXX class, the class should:
+- recieve: a username, sessionId (transfer null if you want to create a new session), expiration time [number] (how long in hours the session should be valid)
+- contains a public method isValid() - the function should calculate if the session expired
+- getUsername(), getSessionId() public method (generally getters & setters)
+- The SessionXXX class - should create in the constructor an session object if not exist
+2) Create two schemas & models for Session & User in mongodb
+3) Complete the server code we did in class, in partifular:
+- All the calls for mongo - get user, update user, create session, get session
+- The SessionXXX class usage.
+- all the validations we did
+- error handling
+- generic structure of 404 & 500 views / responses
