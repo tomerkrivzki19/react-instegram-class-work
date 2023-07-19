@@ -9,7 +9,7 @@ const mongooes = require('mongoose')
 
 // moongoes access:
 mongooes
-  .connect('mongodb://127.0.0.1:27017')
+  .connect('mongodb://127.0.0.1:27017') 
   .then(() => {
     console.log("Connected to DB");
   })
@@ -20,14 +20,16 @@ mongooes
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-//Request & Response ---> i libbary that coonect the req and responed to the type scrip.
+//Request & Response ---> A library that coonect the req and responed to the type scrip.--we van see the import at the top page.
 // the instalattion is : 
 app.get('/4xxCode', (req:Request,res:Response)=>{
   res.render('4xxCode');
+  //need to add an files for the message
 })
 
 app.get('/5xxCode', (req:Request,res:Response)=>{
   res.render('5xxCode');
+    //need to add an files for the message
 })
 
 app.get('/special',(req:Request,res:Response)=>{
@@ -35,18 +37,20 @@ app.get('/special',(req:Request,res:Response)=>{
 });
 
 
-app.get('/', (req, res) => {
-  res.render('Special', {
-    imagePath: '/path/to/your/image.jpg',
-    text: 'Hello, world!'
-  });
-});
+// app.get('/', (req, res) => {
+//   res.render('Special', {
+//     imagePath: '/path/to/your/image.jpg',
+//     text: 'Hello, world!'
+//   });
+// });
+
 
 // client-side query example: POST: 'http://localhost:3000/update-user/3069588493'; body: { address: 'Bugrashov 7, Tel-Aviv, Israel' }
-
+//:id --> view of the id in the http path.
 app.post('/update-user/:id', (req, res) => {
   const username = req.params.id;
   const payload = req.body;
+  // cookie request:
   const { sessionId } = req.cookies;
 
   let session; // session = call mongodb - get session by sessionId
