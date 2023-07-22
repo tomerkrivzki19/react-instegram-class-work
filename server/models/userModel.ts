@@ -1,15 +1,8 @@
-import mongooseUser from 'mongoose';
-import { user } from './interFace';
-//  const {user} = require('./interface')
+import { Schema, model } from "mongoose";
 
+const userSchema= new Schema({
+        id:{type:String},
+        userName:{type:String}
+})
 
-const userSchema = new mongooseUser.Schema<user>({
-    username:String,
-    password: String,
-});
-
-const model =  mongooseUser.model("users",userSchema);
-
-module.exports= model;
-
-
+export const User = model("User", userSchema);

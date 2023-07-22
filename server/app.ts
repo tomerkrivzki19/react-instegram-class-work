@@ -1,11 +1,13 @@
 import { Request,Response } from "express";
+// import {SessionXXX} from './class/session';
 
 const express = require('express');
 const app = express();
-const port = 4000;
 const mongooes = require('mongoose')
+const port = process.env.Port || 8080;
 
 
+require('dotenv').config();
 
 // moongoes access:
 mongooes

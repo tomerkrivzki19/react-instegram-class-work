@@ -1,50 +1,73 @@
+import { SessionModel } from "../models/SessionModel";
+import { Mongoose } from "mongoose";
+import { v4 as uuidv4 } from "uuid";
 
-class SessionXXX {
-    username : string;
-    sessionId :null | number;//null
-    expirationTime: number;//how long in hours the session should be valid
-
-   constructor(   username : string, sessionId :null | number,expirationTime: number){
-    this.username = username;
-    this.sessionId = sessionId;
+export class Session {
+  userName: string| null;
+  sessionId?: string;
+  expirationTime: number;
+  mongoose: Mongoose;
+  constructor(
+    userName: string|null,
+    expirationTime: number,
+    mongoose: Mongoose,
+    sessionId?: string
+  ) {
+    this.userName = userName;
     this.expirationTime = expirationTime;
+    this.mongoose = mongoose;
+    this.initSession(sessionId);
+  }
 
+  public async getSession() {
+    return await SessionModel.findOne({ id: this.sessionId });
+  }
+
+  private async initSession(sessionId?: string): Promise<void> {
+    if (!sessionId) {
+      const myuuid = uuidv4();
+      const session = new SessionModel({
+        id: myuuid,
+        userName: this.userName,
+        createdDate: Date.now(),
+      });
+      session.createdDate;
+      await session.save();
+      this.sessionId = myuuid;
+    } else {
+      this.sessionId = sessionId;
     }
-    //static private bublic
-    public getUserName(){
-      return  this.username;
+  }
+
+  public isValid(session: SessionModel): boolean {
+    const currentTime = Date.now();
+    const liveSession = currentTime - session.createdDate;
+    const liveSessionHours = liveSession / (60 * 60 * 1000);
+    if (this.expirationTime > liveSessionHours) {
+      console.log("valid");
+      return true;
+    } else {
+      console.log("expirationTime");
+      return false;
     }
-    public  setUserName(username:string){
-        this.username = username
-       }
-    public getSessionId(){
-        return this.sessionId;
+  }
 
-    }
-    public setSessionId(sessionId:null | number){
-         this.sessionId = sessionId;
-
-    }
-    public getExpirationTime(){
-     return this.expirationTime
-    }
-    public serExpirationTime(expirationTime:number){
-     this.expirationTime = expirationTime
-    }
-
-    public isVailed(){//the function should calculate if the session expired
-
-        //  Basically, we want to check what the time and date is right now, 
-        // and then check each stored event to see if any of their deadlines match the current time and date. 
-        // If they do, we want to let the user know with some kind of notification.
-
-        //    2. compare --check if the date time is not expired. --ן
-    //    1.send the data to the data base-monoggose                v
-
-    const now = new Date();
-        
-    //***  - The SessionXXX class - should create in the constructor an session object if not exist
-
-    }
+  getuserName() {
+    return this.userName;
+  }
+  getsessionId() {
+    return this.sessionId;
+  }
+  getexpirationTime() {
+    return this.expirationTime;
+  }
+  setuserName(userName: string) {
+    this.userName=userName;
+  }
+  setsessionId(sessionId: string) {
+    this.sessionId = sessionId;
+  }
+  setexpirationTime(expirationTime: number) {
+     this.expirationTime = expirationTime;
+  }
 }
-
