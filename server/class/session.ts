@@ -1,73 +1,72 @@
-import { SessionModel } from "../models/SessionModel";
-import { Mongoose } from "mongoose";
-import { v4 as uuidv4 } from "uuid";
+import { Model } from "mongoose";
 
-export class Session {
-  userName: string| null;
-  sessionId?: string;
-  expirationTime: number;
-  mongoose: Mongoose;
-  constructor(
-    userName: string|null,
-    expirationTime: number,
-    mongoose: Mongoose,
-    sessionId?: string
-  ) {
-    this.userName = userName;
-    this.expirationTime = expirationTime;
-    this.mongoose = mongoose;
-    this.initSession(sessionId);
-  }
+export interface Sessions{
+    UserName:String,
+    expireTime:String,
+    id:number
+}
 
-  public async getSession() {
-    return await SessionModel.findOne({ id: this.sessionId });
-  }
+const SessionModel:Model<Sessions> = require('../models/SessionModel');
 
-  private async initSession(sessionId?: string): Promise<void> {
-    if (!sessionId) {
-      const myuuid = uuidv4();
-      const session = new SessionModel({
-        id: myuuid,
-        userName: this.userName,
-        createdDate: Date.now(),
-      });
-      session.createdDate;
-      await session.save();
-      this.sessionId = myuuid;
-    } else {
-      this.sessionId = sessionId;
+
+
+export class Session{
+private expireDate:Date;
+private userName:string;
+public id:number;
+
+    constructor(userName:string,SessionID?:number,Hours?:number){
+        this.userName = userName;
+        if(SessionID){
+            this.id = SessionID;
+            this.getExistingSession();
+        }
+        else
+        {
+        this.expireDate = new Date();
+        this.expireDate.setHours(this.expireDate.getHours()+Hours);
+        this.id = (Math.floor(Math.random()*1000));
+        this.createSessionMongo(this.expireDate,userName);
+        }
+
     }
-  }
-
-  public isValid(session: SessionModel): boolean {
-    const currentTime = Date.now();
-    const liveSession = currentTime - session.createdDate;
-    const liveSessionHours = liveSession / (60 * 60 * 1000);
-    if (this.expirationTime > liveSessionHours) {
-      console.log("valid");
-      return true;
-    } else {
-      console.log("expirationTime");
-      return false;
+   
+    
+    public getexpireDate() : number {
+        return this.expireDate?.getTime();
     }
-  }
+    
+    public getUserName():string{
+        return this.userName;
+    }
+    public getSessionId():number{
+        return this.id;
+    }
 
-  getuserName() {
-    return this.userName;
-  }
-  getsessionId() {
-    return this.sessionId;
-  }
-  getexpirationTime() {
-    return this.expirationTime;
-  }
-  setuserName(userName: string) {
-    this.userName=userName;
-  }
-  setsessionId(sessionId: string) {
-    this.sessionId = sessionId;
-  }
-  setexpirationTime(expirationTime: number) {
-     this.expirationTime = expirationTime;
-  }
+    public setSessionId(id:number){
+        this.id=id;
+    }
+    public setUserName(UserName:string){
+        this.userName=this.userName;
+    }
+    private async createSessionMongo(Hours:Date,userName:string){
+        try {
+            const SessionDB = new SessionModel({
+                UserName:userName,
+                expireTime:Hours.getTime(),
+                id:this.id
+            })
+            await SessionDB.save().then((value)=>{
+                console.log(value)
+                
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    private async getExistingSession(){
+        const SessionDB = await SessionModel.findOne({id:this.id});
+        this.expireDate = new Date();
+        this.expireDate.setTime(Number.parseInt((SessionDB.expireTime as string)));
+    }
 }

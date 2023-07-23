@@ -31,3 +31,15 @@ more info - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Gl
 - all the validations we did
 - error handling
 - generic structure of 404 & 500 views / responses
+
+
+H.W 19/07:
+1) Complete the in mongo interaction with get user (in /login route) & update user (in /update-user/:id route) - similarly to what we did in Session class
+2) Add a new schema for instagram post
+3) Create an ability in the html to create a post - that fills a form (post name, description, username, date, image - you should find out in the internet how to upload image to express server) - you should implement a new /upload-post route in the server that saves the post in the mongo db, and saves the image. the new post should be added to the previous list.
+4) Create a simple login page to your instagram app - contains - logo at the top, fields: username, password (edited) 
+
+
+
+
+

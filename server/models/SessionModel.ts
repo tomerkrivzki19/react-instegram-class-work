@@ -1,9 +1,13 @@
-import { Schema, model } from "mongoose";
+const mongoose = require('mongoose');
 
-const SessionSchema= new Schema({
-        id:{type:String},
-        userName:{type:String},
-        createdDate:{type:Number}
-})
 
-export const SessionModel = model("SessionModel", SessionSchema);
+const SessionScema = new mongoose.Schema({
+    UserName:String,
+    expireTime:String,
+    id:String
+  });
+  
+  var SessionModel = mongoose.model("Session", SessionScema);
+  
+  
+module.exports = SessionModel;

@@ -1,8 +1,12 @@
-import { Schema, model } from "mongoose";
+import mongoose from  "mongoose"
+// import { User } from '.'
+import { user } from "./UserInterface";
 
-const userSchema= new Schema({
-        id:{type:String},
-        userName:{type:String}
-})
+const UserScehma = new mongoose.Schema<user>({
+  UserName:String,
+  Password:String
+});
 
-export const User = model("User", userSchema);
+var UserModel = mongoose.model<user>("Users", UserScehma);
+
+module.exports = UserModel;
