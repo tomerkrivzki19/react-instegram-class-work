@@ -64,20 +64,20 @@ app.post('/update-user/:id', (req, res) => {
   }
 });
 
-app.post('/login', (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  let user;
-  // const user = call mongodb - get user by username
-  if (!user || user.password != password) {
-    res.status(401).send('Bad username & password combination');
-  } else {
-    const session = new Session(12, username); // this class saves the session in mongo behind the scenes - in Session constructor
-    const sessionId = session.id;
-    res.cookie('sessionId', sessionId, { maxAge: 900000, httpOnly: true });
-    res.status(200).send('Login succesfully!');
-  }
-});
+// app.post('/login', (req, res) => {
+//   const username = req.body.username;
+//   const password = req.body.password;
+//   let user;
+//   // const user = call mongodb - get user by username
+//   if (!user || user.password != password) {
+//     res.status(401).send('Bad username & password combination');
+//   } else {
+//     const session = new Session(12, username); // this class saves the session in mongo behind the scenes - in Session constructor
+//     const sessionId = session.id;
+//     res.cookie('sessionId', sessionId, { maxAge: 900000, httpOnly: true });
+//     res.status(200).send('Login succesfully!');
+//   }
+// });
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
