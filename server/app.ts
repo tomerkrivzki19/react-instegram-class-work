@@ -1,7 +1,7 @@
 import { Request,Response, response } from "express";
 import { Model } from "mongoose";
 import { Session, Sessions } from "./class/Session";
-import { SessionXXX } from "./class/sessionXXX";
+import { SessionXXX } from "./class/SessionXXX";
 const SessionModel:Model<Sessions> = require('./models/SessionModel')
 const express = require('express');
 const mongoose = require('mongoose');
