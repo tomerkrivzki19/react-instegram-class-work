@@ -169,3 +169,5 @@ first if it an sql or no-sql language , and then which data base is more flexaba
 and the another thing that the develpoer need to learn is that acording to his project , what type of system she can use .
 (id she have a lot of data that she need to store , if it small project or big project and so on..)
 
+
+
