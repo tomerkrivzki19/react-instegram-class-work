@@ -127,3 +127,45 @@ answers:
 
 5XX — Server Error ----שגיעת צד שרת
 
+
+
+
+H.W 19/07:
+1) Complete the in mongo interaction with get user (in /login route) & update user (in /update-user/:id route) - similarly to what we did in Session class
+2) Add a new schema for instagram post
+3) Create an ability in the html to create a post - that fills a form (post name, description, username, date, image - you should find out in the internet how to upload image to express server) - you should implement a new /upload-post route in the server that saves the post in the mongo db, and saves the image. the new post should be added to the previous list.
+4) Create a simple login page to your instagram app - contains - logo at the top, fields: username, password;
+
+
+
+
+H.W 23/07:
+- Read about sql vs no-sql databases:
+* Give a list of 10 databases - and split them to categories (who is sql and who is no-sql)
+* Explain what is special about each database
+* Explain at least 4 advantages for each sql/nosql database.
+
+answers:
+sql data bases in based on tabales with row and colums , while no sql are more flexibale and are based by data models .
+sql db are based on sql language , and the no sql dont based on sql Language and more flexabale.
+list of 10 data bases:
+1. MySQL ·  <!-- sql -->
+2. Oracle ·   <!-- , NoSQL and MySQL -->?
+3. PostgreSQL ·   <!-- sql -->
+4. Microsoft SQL Server ·  <!-- sql -->
+5. MongoDB ·  <!-- no-sql -->
+6. Redis · <!-- no-sql -->
+7. Elasticsearch ·<!-- sql -->
+8. Cassandra · <!-- no-sql -->
+9. MariaDB ·    <!-- sql -->    
+10. IBM Db2            <!-- sql -->
+
+<!-- sql -->
+<!-- no-sql -->
+<!-- , NoSQL and MySQL -->
+
+* eatch data base have it own unic system , and the develpoer need to choose which system is most helpful for him self.
+first if it an sql or no-sql language , and then which data base is more flexabale and more easy to work . 
+and the another thing that the develpoer need to learn is that acording to his project , what type of system she can use .
+(id she have a lot of data that she need to store , if it small project or big project and so on..)
+
